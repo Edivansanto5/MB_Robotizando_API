@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-06-02T09:20:10.233634" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="C:\Users\mb_la\OneDrive\Documentos\MB_Robotizando_API\API-ROBOT\Test">
+<suite id="s1-s1" name="SO1 API" source="C:\Users\mb_la\OneDrive\Documentos\MB_Robotizando_API\API-ROBOT\Test\SO1_API.robot">
+<test id="s1-s1-t1" name="CT04: Realizar uma Requisição PUT alterando job do usuario" line="29">
+<kw name="Dado que estou conectado na Api" owner="Api_Resouces">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-06-02T09:20:10.411319" level="INFO">Creating Session using : alias=lista_users, url=https://reqres.in/api/users/2, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2024-06-02T09:20:10.412271" level="INFO">${ALIAS} = &lt;requests.sessions.Session object at 0x0000022B7ACD0A40&gt;</msg>
+<var>${ALIAS}</var>
+<arg>alias=lista_users</arg>
+<arg>url=${URL}/${FINAL_ENDPOINT}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-06-02T09:20:10.411319" elapsed="0.000952"/>
+</kw>
+<kw name="Session Exists" owner="RequestsLibrary">
+<arg>alias=lista_users</arg>
+<doc>Return True if the session has been already created</doc>
+<status status="PASS" start="2024-06-02T09:20:10.412271" elapsed="0.000000"/>
+</kw>
+<arg>users/2</arg>
+<status status="PASS" start="2024-06-02T09:20:10.408748" elapsed="0.003523"/>
+</kw>
+<kw name="Quando envio a requisição para alterar job de um usuario" owner="Api_Resouces">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-02T09:20:10.413273" level="INFO">${DADOS} = {'name': 'Miriam', 'job': 'Tester'}</msg>
+<var>${DADOS}</var>
+<arg>name=Miriam</arg>
+<arg>job=Tester</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-02T09:20:10.413273" elapsed="0.000000"/>
+</kw>
+<kw name="PUT" owner="RequestsLibrary">
+<msg time="2024-06-02T09:20:11.872744" level="INFO">PUT Request : url=https://reqres.in/api/users/5/%7B'name':%20'Miriam',%20'job':%20'Tester'%7D 
+ path_url=/api/users/5/%7B'name':%20'Miriam',%20'job':%20'Tester'%7D 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-06-02T09:20:11.873768" level="INFO">PUT Response : url=https://reqres.in/api/users/5/%7B'name':%20'Miriam',%20'job':%20'Tester'%7D 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 02 Jun 2024 12:20:14 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '40', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1717330814&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=75JZTNuAb2F1s1yj8jNpGPaYQ3WGKx3CEimejFKQ8N0%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1717330814&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=75JZTNuAb2F1s1yj8jNpGPaYQ3WGKx3CEimejFKQ8N0%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"28-dXazvGR0GJ8OjsgEecTyiUcmJR0"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '88d76574faf8012a-GRU'} 
+ body={"updatedAt":"2024-06-02T12:20:14.556Z"} 
+ </msg>
+<msg time="2024-06-02T09:20:11.873768" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>url=${URL}/users/5/${DADOS}</arg>
+<doc>Sends a PUT request.</doc>
+<status status="PASS" start="2024-06-02T09:20:10.413273" elapsed="1.460495"/>
+</kw>
+<status status="PASS" start="2024-06-02T09:20:10.413273" elapsed="1.460495"/>
+</kw>
+<kw name="Então a Requisição deve ocorrer sucesso" owner="Api_Resouces">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2024-06-02T09:20:11.875813" level="FAIL">Url: https://reqres.in/api/users/5/%7B'name':%20'Miriam',%20'job':%20'Tester'%7D Expected status: 200 != 500</msg>
+<arg>${status_code}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="FAIL" start="2024-06-02T09:20:11.874760" elapsed="0.005342">Url: https://reqres.in/api/users/5/%7B'name':%20'Miriam',%20'job':%20'Tester'%7D Expected status: 200 != 500</status>
+</kw>
+<arg>500</arg>
+<status status="FAIL" start="2024-06-02T09:20:11.874760" elapsed="0.005342">Url: https://reqres.in/api/users/5/%7B'name':%20'Miriam',%20'job':%20'Tester'%7D Expected status: 200 != 500</status>
+</kw>
+<doc>CARD XXYY</doc>
+<tag>S01CT04</tag>
+<status status="FAIL" start="2024-06-02T09:20:10.407785" elapsed="1.473318">Url: https://reqres.in/api/users/5/%7B'name':%20'Miriam',%20'job':%20'Tester'%7D Expected status: 200 != 500</status>
+</test>
+<status status="FAIL" start="2024-06-02T09:20:10.261253" elapsed="1.623063"/>
+</suite>
+<status status="FAIL" start="2024-06-02T09:20:10.235629" elapsed="1.651698"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">S01CT04</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test">Test</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="SO1 API">Test.SO1 API</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-06-02T09:20:10.225282" level="WARN">Error in file 'C:\Users\mb_la\OneDrive\Documentos\MB_Robotizando_API\API-ROBOT\Test\SO1_API.robot' on line 5: Singular section headers like '*** Test Case ***' are deprecated. Use plural format like '*** Test Cases ***' instead.</msg>
+</errors>
+</robot>
