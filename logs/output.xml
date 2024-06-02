@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-06-02T09:00:29.652835" rpa="false" schemaversion="5">
+<suite id="s1" name="MB Robotizando API" source="C:\Users\mb_la\OneDrive\Documentos\MB_Robotizando_API">
+<suite id="s1-s1" name="API-ROBOT" source="C:\Users\mb_la\OneDrive\Documentos\MB_Robotizando_API\API-ROBOT">
+<suite id="s1-s1-s1" name="Test" source="C:\Users\mb_la\OneDrive\Documentos\MB_Robotizando_API\API-ROBOT\Test">
+<suite id="s1-s1-s1-s1" name="SO1 API" source="C:\Users\mb_la\OneDrive\Documentos\MB_Robotizando_API\API-ROBOT\Test\SO1_API.robot">
+<test id="s1-s1-s1-s1-t1" name="CT03: Realizar uma Requisição DELITE excluindo usuario" line="22">
+<kw name="Dado que estou conectado na Api" owner="Api_Resouces">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-06-02T09:00:29.830767" level="INFO">Creating Session using : alias=lista_users, url=https://reqres.in/api/users/2, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2024-06-02T09:00:29.831777" level="INFO">${ALIAS} = &lt;requests.sessions.Session object at 0x00000233D26A21B0&gt;</msg>
+<var>${ALIAS}</var>
+<arg>alias=lista_users</arg>
+<arg>url=${URL}/${FINAL_ENDPOINT}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-06-02T09:00:29.830767" elapsed="0.001010"/>
+</kw>
+<kw name="Session Exists" owner="RequestsLibrary">
+<arg>alias=lista_users</arg>
+<doc>Return True if the session has been already created</doc>
+<status status="PASS" start="2024-06-02T09:00:29.831777" elapsed="0.000000"/>
+</kw>
+<arg>users/2</arg>
+<status status="PASS" start="2024-06-02T09:00:29.828729" elapsed="0.003048"/>
+</kw>
+<kw name="Quando envio a requisição para deletar um usuario" owner="Api_Resouces">
+<kw name="DELETE" owner="RequestsLibrary">
+<msg time="2024-06-02T09:00:31.290117" level="INFO">DELETE Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-06-02T09:00:31.290117" level="INFO">DELETE Response : url=https://reqres.in/api/users/2 
+ status=204, reason=No Content 
+ headers={'Date': 'Sun, 02 Jun 2024 12:00:34 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1717329633&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=NCsci7Hl2CaX5NLSbmWHs1rZcW8WNVW%2FOl%2F5bavjXiE%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1717329633&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=NCsci7Hl2CaX5NLSbmWHs1rZcW8WNVW%2FOl%2F5bavjXiE%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '88d748a22df451c0-GRU'} 
+ body=None 
+ </msg>
+<msg time="2024-06-02T09:00:31.290117" level="INFO">${RESPONSE} = &lt;Response [204]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>url=${URL}/users/2</arg>
+<doc>Sends a DELETE request.</doc>
+<status status="PASS" start="2024-06-02T09:00:29.832926" elapsed="1.457191"/>
+</kw>
+<status status="PASS" start="2024-06-02T09:00:29.832413" elapsed="1.457704"/>
+</kw>
+<kw name="Então a Requisição deve ocorrer sucesso" owner="Api_Resouces">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>${status_code}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-06-02T09:00:31.291099" elapsed="0.000000"/>
+</kw>
+<arg>204</arg>
+<status status="PASS" start="2024-06-02T09:00:31.291099" elapsed="0.001127"/>
+</kw>
+<doc>CARD XXYY</doc>
+<tag>S01CT03</tag>
+<status status="PASS" start="2024-06-02T09:00:29.827726" elapsed="1.465055"/>
+</test>
+<status status="PASS" start="2024-06-02T09:00:29.689080" elapsed="1.604708"/>
+</suite>
+<status status="PASS" start="2024-06-02T09:00:29.687036" elapsed="1.608759"/>
+</suite>
+<status status="PASS" start="2024-06-02T09:00:29.683908" elapsed="1.612880"/>
+</suite>
+<status status="PASS" start="2024-06-02T09:00:29.655628" elapsed="1.643163"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">S01CT03</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="MB Robotizando API">MB Robotizando API</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="API-ROBOT">MB Robotizando API.API-ROBOT</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Test">MB Robotizando API.API-ROBOT.Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="SO1 API">MB Robotizando API.API-ROBOT.Test.SO1 API</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-06-02T09:00:29.644641" level="WARN">Error in file 'C:\Users\mb_la\OneDrive\Documentos\MB_Robotizando_API\API-ROBOT\Test\SO1_API.robot' on line 5: Singular section headers like '*** Test Case ***' are deprecated. Use plural format like '*** Test Cases ***' instead.</msg>
+</errors>
+</robot>
